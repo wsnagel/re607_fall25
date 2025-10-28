@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="husky">
+  <!-- robot name parameter -->
+  <!-- <xacro:arg name="name" default="" /> -->
+
+  <xacro:arg name="prefix" default="" />
+  <xacro:arg name="gazebo_controllers" default="$(find husky_control)/config/control.yaml" />
+
+  <xacro:include filename="$(find wall_following_assignment)/urdf/husky_macro.urdf.xacro" />
+
+  <!-- Load husky description -->
+  <xacro:husky prefix="$(arg prefix)" />
+  	
+    <gazebo reference="imu_link">
+      <sensor name="imu_sensor" type="imu">
+          <topic>imu</topic>
+          <frame_id>imu_link</frame_id>
+          <always_on>true</always_on>
+          <update_rate>100</update_rate>
+          <visualize>true</visualize>
+      </sensor>
+    </gazebo>
+    
+    <gazebo reference="scan_link">
+      <sensor name="scan_sensor" type="gpu_lidar">
+          <pose> 0 0 0 0 0 0 </pose>
+          <visualize>false</visualize>
+          <update_rate>50</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>360</samples>
+                <min_angle>-3.14</min_angle>
+                <max_angle>3.14</max_angle>
+              </horizontal>
+            </scan>
+            <range>
+              <min>0.3</min>
+              <max>12</max>
+            </range>
+          </lidar>
+          <always_on>true</always_on>
+          <topic>scan</topic>
+          <frame_id>scan_link</frame_id>
+      </sensor>
+    </gazebo>
+    
+  <!-- Optional custom includes. -->
+  <xacro:include filename="$(arg urdf_extras)" />
+
+</robot>

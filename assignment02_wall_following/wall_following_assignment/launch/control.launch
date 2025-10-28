@@ -1,0 +1,37 @@
+<launch>
+  
+  <arg name="tf_prefix"  default="none"/>
+  <arg name="robot_name"  default=""/>
+ 
+  <!-- Spawn in State Broadcaster and Velocity Controllers for robot -->
+  <node pkg="controller_manager" exec="spawner" name="husky_state_broadcaster_spawner" args="joint_state_broadcaster  --ros-args --params-file $(find-pkg-share husky_control)/config/control.yaml">
+    <param name="use_sim_time" value="true" />
+  </node>
+
+  <node pkg="controller_manager" exec="spawner" name="husky_velocity_control_spawner" args="husky_velocity_controller --ros-args --params-file $(find-pkg-share husky_control)/config/control.yaml">
+    <param name="use_sim_time" value="true" />
+  </node>
+
+  <!-- ROS2 needs to bridge Gazebo (GZ) and ROS topics -->
+  <ros_gz_bridge bridge_name="parameter_bridge">
+    <topic ros_topic_name="/clock" gz_topic_name="/clock"
+           ros_type_name="rosgraph_msgs/msg/Clock" gz_type_name="gz.msgs.Clock"
+           direction="GZ_TO_ROS" />
+    <topic ros_topic_name="/tf" gz_topic_name="/tf"
+           ros_type_name="tf2_msgs/msg/TFMessage" gz_type_name="gz.msgs.Pose_V"
+           direction="GZ_TO_ROS" />
+    <topic ros_topic_name="/imu" gz_topic_name="/imu"
+           ros_type_name="sensor_msgs/msg/Imu" gz_type_name="gz.msgs.IMU"
+           direction="GZ_TO_ROS" />
+    <topic ros_topic_name="/odom" gz_topic_name="/odom"
+           ros_type_name="nav_msgs/msg/Odometry" gz_type_name="gz.msgs.Odometry"
+           direction="GZ_TO_ROS" />
+    <topic ros_topic_name="/joint_states" gz_topic_name="/joint_states"
+           ros_type_name="sensor_msgs/msg/JointState" gz_type_name="gz.msgs.Model"
+           direction="GZ_TO_ROS" />
+    <topic ros_topic_name="/scan" gz_topic_name="/scan"
+           ros_type_name="sensor_msgs/msg/LaserScan" gz_type_name="gz.msgs.LaserScan"
+           direction="GZ_TO_ROS" />
+  </ros_gz_bridge>
+  
+  </launch>

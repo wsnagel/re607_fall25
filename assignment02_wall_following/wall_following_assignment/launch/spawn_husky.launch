@@ -1,0 +1,40 @@
+<launch>
+
+  <arg name="laser_enabled" default="true"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.1"/>
+  <arg name="tf_prefix" default="/"/>
+  <arg name="robot_name" default="/"/>
+  <arg name="realsense_enabled" default="false"/>
+  
+
+  <let name="husky_description" value="$(command '$(find-exec xacro) $(find-pkg-share wall_following_assignment)/urdf/husky.urdf.xacro prefix:=$(var robot_name)')"/>
+  
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" exec="robot_state_publisher">
+    <param name="robot_description" type="str" value="$(var husky_description)"/>
+  </node>
+ 
+ <!-- Spawn robot in gazebo -->
+  <node pkg="ros_gz_sim" exec="create" name="spawn_husky_model" output="screen">
+    <param name="world" value="default"/>
+    <param name="topic" value="robot_description"/>
+    <param name="name" value="$(var robot_name)"/>
+    <param name="x" value="$(var x)"/>
+    <param name="y" value="$(var y)"/>
+    <param name="z" value="$(var z)"/>
+    <param name="R" value="0.0"/>
+    <param name="P" value="0.0"/>
+    <param name="Y" value="0.0"/>
+    <param name="robot_description" value="husky_description"/>
+  </node>
+   
+  <!-- Load Husky control information -->
+  <include file="$(find-pkg-share wall_following_assignment)/launch/control.launch"> 
+    <arg name="tf_prefix"  value="$(var tf_prefix)"/>
+    <arg name="robot_name"  value="$(var robot_name)"/>
+  </include>
+ 
+   
+</launch>

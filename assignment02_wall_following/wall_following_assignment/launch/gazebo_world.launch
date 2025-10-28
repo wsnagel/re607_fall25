@@ -1,0 +1,19 @@
+<launch>
+  <arg name="world_name" default="walls_one_sided"/>
+  <arg name="enable_gui" default="true"/>
+  <arg name="enable_headless" default="false"/>
+  
+
+     <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
+       <arg name="gz_args" value="$(find-pkg-share wall_following_assignment)/worlds/$(var world_name).world"/>
+       <arg name="debug" value="false"/>
+       <arg name="headless" value="$(var enable_headless)"/>
+       <arg name="gui" value="$(var enable_gui)"/>
+     </include>
+     
+
+   
+  <node pkg="tf2_ros" exec="static_transform_publisher" name="map_to_world" args="0 0 0 0 0 0 world map"
+        output="screen">       
+  </node> 
+</launch>

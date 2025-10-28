@@ -1,0 +1,7 @@
+<launch>
+   <node pkg="wall_following_assignment" exec="wall_follower.py" name="wf_script" output="screen" >
+         <param name="forward_speed" value="1.0" />
+         <param name="desired_distance_from_wall" value="2.0" />
+         <param name="use_sim_time" value="true" />
+   </node>
+</launch>

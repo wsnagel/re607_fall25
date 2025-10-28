@@ -1,0 +1,25 @@
+<launch>
+  <arg name="laser_enabled" default="true"/>
+  <arg name="husky_name" default="husky"/>
+  <arg name="xinit"  default="-3.0" />
+  <arg name="yinit"  default="2.0" />
+  <arg name="zinit"  default="0.1" />
+  
+  <!-- Run Spawn Husky launch file; brings in robot and controllers -->
+  <include file="$(find-pkg-share wall_following_assignment)/launch/spawn_husky.launch">
+      <arg name="laser_enabled" value="$(var laser_enabled)"/>
+      <arg name="x" value="$(var xinit)"/>
+      <arg name="y" value="$(var yinit)"/>
+      <arg name="z" value="$(var zinit)"/>
+      <arg name="robot_name" value="$(var husky_name)_1"/>
+      <arg name="tf_prefix" value="$(var husky_name)_1"/>
+  </include>
+        
+  <!-- Ground Truth calculations for odometry in RVIZ -->
+  <node pkg="tf2_ros" exec="static_transform_publisher" name="$(var husky_name)_1_base_to_world" args="$(var xinit) $(var yinit) $(var zinit) 0 0 0 map husky_odom" output="screen"/>
+     
+   
+  <node pkg="wall_following_assignment" exec="ground_truth_tf_publisher.py" name="ground_truth_publisher" output="screen"/>
+
+
+</launch>

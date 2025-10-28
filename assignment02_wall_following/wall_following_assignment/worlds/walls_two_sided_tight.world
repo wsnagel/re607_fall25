@@ -1,0 +1,230 @@
+<sdf version='1.9'>
+  <world name="default">
+    <include>
+  <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+</include>
+  <physics name="1ms" type="ignored">
+    <max_step_size>0.001</max_step_size>
+    <real_time_factor>1.0</real_time_factor>
+  </physics>
+  <plugin
+    filename="gz-sim-physics-system"
+    name="gz::sim::systems::Physics">
+  </plugin>
+  <plugin
+    filename="gz-sim-user-commands-system"
+    name="gz::sim::systems::UserCommands">
+  </plugin>
+  <plugin
+    filename="gz-sim-scene-broadcaster-system"
+    name="gz::sim::systems::SceneBroadcaster">
+  </plugin>
+  <plugin
+    filename="gz-sim-sensors-system"
+    name="gz::sim::systems::Sensors">
+    <render_engine>ogre2</render_engine>
+  </plugin>
+  <plugin
+    filename="gz-sim-contact-system"
+    name="gz::sim::systems::Contact">
+  </plugin>
+    
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <plugin
+      filename="gz-sim-imu-system"
+      name="gz::sim::systems::Imu">
+    </plugin>
+    
+    <model name="grey_wall">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-1.99882 3.53996 0 0 -0 0</pose>
+    </model>
+    
+    <model name="grey_wall_0">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>5.47732 3.5423 0 0 -0 0</pose>
+    </model>
+    
+    <model name="grey_wall_1">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>12.8795 3.55138 0 0 -0 0</pose>
+    </model>
+    
+    <model name="grey_wall_2">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>18.637 6.70287 0 0 -0 1.01032</pose>
+    </model>
+
+     <model name="grey_wall_3">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>22.6039 13.0459 0 0 -0 1.01032</pose>
+    </model> 
+      
+      <model name="grey_wall_4">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>19.2916 3.33215 0 0 -0 1.01032</pose>
+    </model> 
+    
+      <model name="grey_wall_5">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>23.2651 9.63734 0 0 -0 1.01032</pose>
+    </model> 
+      
+      <model name="grey_wall_6">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>27.2551 16.0207 0 0 -0 1.01032</pose>
+    </model> 
+      
+     <model name="grey_wall_7">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>20.8881 16.2604 0 0 -0 0</pose>
+    </model>  
+      
+      <model name="grey_wall_8">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>13.469 16.2711 0 0 -0 0</pose>
+    </model>  
+      
+      <model name="grey_wall_9">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>25.3835 19.9489 0 0 -0 0</pose>
+    </model>
+      
+     <model name="grey_wall_10">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>17.8657 19.9701 0 0 -0 0</pose>
+    </model> 
+      
+    <model name="grey_wall_11">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>10.3638 19.9885 0 0 -0 0</pose>
+    </model>   
+      
+     <model name="grey_wall_12">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>2.88677 19.9905 0 0 -0 0</pose>
+    </model>   
+      
+      <model name="grey_wall_13">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-4.53151 19.9978 0 0 -0 0</pose>
+    </model> 
+      
+     <model name="grey_wall_14">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>6.25652 16.2499 0 0 -0 0</pose>
+    </model>  
+      
+     <model name="grey_wall_15">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-1.2015 16.2559 0 0 -0 0</pose>
+    </model>   
+      
+    <model name="grey_wall_16">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-2.20667 7.30488 0 0 0 -1.55755</pose>
+    </model>   
+      
+     <model name="grey_wall_17">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-8.20775 16.2652 0 0 0 -1.55755</pose>
+    </model>  
+      
+    <model name="grey_wall_18">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-9.09808 8.73973 0 0 0 -1.55755</pose>
+    </model>    
+      
+    <model name="grey_wall_19">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-8.30668 3.0841 0 0 0 -0.978838</pose>
+    </model>   
+      
+     <model name="grey_wall_20">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-2.25612 11.9823 0 0 0 -1.55755</pose>
+    </model>   
+      
+     <model name="grey_wall_21">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>-2.0638 0.545105 0 0 -0 0</pose>
+    </model>  
+      
+     <model name="grey_wall_22">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>5.4043 0.55852 0 0 -0 0</pose>
+    </model>   
+      
+      <model name="grey_wall_23">
+      <include>
+        <uri>model://Grey Wall</uri>
+      </include>
+      <pose relative_to=''>12.8225 0.545033 0 0 -0 0</pose>
+    </model> 
+      
+      
+      
+  </world>
+</sdf>
