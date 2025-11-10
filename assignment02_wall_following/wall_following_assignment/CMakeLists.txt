@@ -83,7 +83,7 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-foreach(dir launch config worlds resources urdf models)
+foreach(dir launch worlds resources urdf models)
   install(DIRECTORY ${dir}/
     DESTINATION share/${PROJECT_NAME}/${dir})
 endforeach()
