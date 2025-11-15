@@ -1,0 +1,79 @@
+rosbag2_bagfile_information:
+  compression_format: ''
+  compression_mode: ''
+  custom_data: null
+  duration:
+    nanoseconds: 126110000000
+  files:
+  - duration:
+      nanoseconds: 126110000000
+    message_count: 51100
+    path: laserControlOdomBag.db3
+    starting_time:
+      nanoseconds_since_epoch: 6648490000000
+  message_count: 51100
+  relative_file_paths:
+  - laserControlOdomBag.db3
+  ros_distro: rosbags
+  starting_time:
+    nanoseconds_since_epoch: 6648490000000
+  storage_identifier: sqlite3
+  topics_with_message_count:
+  - message_count: 1
+    topic_metadata:
+      name: /tf_static
+      offered_qos_profiles:
+      - avoid_ros_namespace_conventions: false
+        deadline:
+          nsec: 4294967295
+          sec: 2147483647
+        depth: 0
+        durability: transient_local
+        history: unknown
+        lifespan:
+          nsec: 4294967295
+          sec: 2147483647
+        liveliness: automatic
+        liveliness_lease_duration:
+          nsec: 4294967295
+          sec: 2147483647
+        reliability: reliable
+      serialization_format: cdr
+      type: tf2_msgs/msg/TFMessage
+      type_description_hash: RIHS01_e369d0f05a23ae52508854b66f6aa0437f3449d652e8cbf22d5abe85d020f087
+  - message_count: 12612
+    topic_metadata:
+      name: /clock
+      offered_qos_profiles: []
+      serialization_format: cdr
+      type: rosgraph_msgs/msg/Clock
+      type_description_hash: RIHS01_692f7a66e93a3c83e71765d033b60349ba68023a8c689a79e48078bcb5c58564
+  - message_count: 12611
+    topic_metadata:
+      name: /husky_1/odometry/ground_truth
+      offered_qos_profiles: []
+      serialization_format: cdr
+      type: nav_msgs/msg/Odometry
+      type_description_hash: RIHS01_3cc97dc7fb7502f8714462c526d369e35b603cfc34d946e3f2eda2766dfec6e0
+  - message_count: 21438
+    topic_metadata:
+      name: /tf
+      offered_qos_profiles: []
+      serialization_format: cdr
+      type: tf2_msgs/msg/TFMessage
+      type_description_hash: RIHS01_e369d0f05a23ae52508854b66f6aa0437f3449d652e8cbf22d5abe85d020f087
+  - message_count: 1261
+    topic_metadata:
+      name: /husky_1/scan
+      offered_qos_profiles: []
+      serialization_format: cdr
+      type: sensor_msgs/msg/LaserScan
+      type_description_hash: RIHS01_64c191398013af96509d518dac71d5164f9382553fce5c1f8cca5be7924bd828
+  - message_count: 3177
+    topic_metadata:
+      name: /husky_1/cmd_vel
+      offered_qos_profiles: []
+      serialization_format: cdr
+      type: geometry_msgs/msg/Twist
+      type_description_hash: RIHS01_9c45bf16fe0983d80e3cfe750d6835843d265a9a6c46bd2e609fcddde6fb8d2a
+  version: 9

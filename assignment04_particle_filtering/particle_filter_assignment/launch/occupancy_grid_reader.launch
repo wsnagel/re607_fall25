@@ -1,0 +1,7 @@
+<launch>
+    <arg name="occupancy_grid_filename"/>
+
+    <node pkg="particle_filter_assignment" exec="occupancy_grid_publisher.py" name="occupancy_grid_reader">
+        <param name="occupancy_grid_filename" value="$(var occupancy_grid_filename)"/>
+    </node>
+</launch>

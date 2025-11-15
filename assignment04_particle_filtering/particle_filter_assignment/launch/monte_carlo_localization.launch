@@ -1,0 +1,14 @@
+<launch>
+
+   <node pkg="particle_filter_assignment" exec="monte_carlo_localization.py" output="screen" name="monte_carlo_localization">
+         <param name="map_file" value="$(find-pkg-share particle_filter_assignment)/resources/newMap.pkl" />
+         <param name="dynamics_translation_noise_std_dev"    value="0.05" />
+         <param name="dynamics_orientation_noise_std_dev"    value="0.05" />
+         <param name="beam_range_measurement_noise_std_dev"  value="0.3" />     
+   </node>
+
+   <include file="$(find-pkg-share particle_filter_assignment)/launch/occupancy_grid_reader.launch" >
+        <arg name="occupancy_grid_filename"  value="$(find-pkg-share particle_filter_assignment)/resources/newMap.pkl"/>
+   </include>
+
+</launch>
